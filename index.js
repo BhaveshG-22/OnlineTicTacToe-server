@@ -7,8 +7,14 @@ const cors = require("cors");
 
 let count = 0;
 
+const corsOptions = {
+  origin: "*",
+  methods: ["GET", "POST"],
+};
+
+app.use(cors(corsOptions));
+
 const server = http.createServer(app);
-app.use(cors);
 
 const io = new Server(server, {
   cors: {
